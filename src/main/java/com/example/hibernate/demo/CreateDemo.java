@@ -37,9 +37,16 @@ public class CreateDemo {
             InstructorDetail tempInstructorDetail =
                     new InstructorDetail("http://www.youtube.com",
                             "guitar");
+            Instructor tempInstructor1 =
+                    new Instructor("John", "Dave", "johny@gmail.com");
+
+            InstructorDetail tempInstructorDetail1 =
+                    new InstructorDetail("http://www.youtube.com",
+                            "programming");
 
             // associate the objects
             tempInstructor.setInstructorDetail(tempInstructorDetail);
+            tempInstructor1.setInstructorDetail(tempInstructorDetail1);
 
             // start a transaction
             session.beginTransaction();
@@ -52,6 +59,7 @@ public class CreateDemo {
 
             System.out.println("Saving instructor: " + tempInstructor);
             session.save(tempInstructor);
+            session.save(tempInstructor1);
 
             // commit transaction
             session.getTransaction().commit();
